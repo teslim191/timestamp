@@ -11,7 +11,7 @@ router.get('/:date?', (req, res) => {
     if (isNaN(date_parse) == false && req.params.date) {
       res.json({"unix": date.getTime(), "utc": date.toUTCString()})
     }
-    else if (!isNaN(date_parse)==true && !regexp2.test(req.params.date) && req.params.date) {
+    else if (isNaN(date_parse)==true && !regexp2.test(req.params.date) && req.params.date) {
       res.json({error:"Invalid Date" })
     }
     else if (regexp2.test(req.params.date) && req.params.date) {
