@@ -16,7 +16,7 @@ router.get('/:date?', (req, res) => {
     }
     else if (regexp2.test(req.params.date) && req.params.date) {
       date = new Date(Number(req.params.date));
-      res.json({"unix": date.getTime(), "utc": date.toString()})
+      res.json({"unix": date.getTime(), "utc": date.toUTCString()})
     }
     else if (!date_parse){
       current_date = new Date()
